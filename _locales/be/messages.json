@@ -3,7 +3,7 @@
 "popup_menu_autoload": { "message": "Аўтазагрузка" },
 "save_field": { "message": "Захаваць толькі гэтае поле" },
 "load_field": { "message": "Загрузіце толькі гэтае поле" },
-"clear_field": { "message": "Ачысціць гэта поле толькі дадзеныя" },
+"clear_field": { "message": "Ачысціць дадзеныя толькі гэтага поля" },
 "save_all": { "message": "Захаваць усе палі" },
 "load_all": { "message": "Загрузіць дадзеныя ў палі" },
 "clear_all": { "message": "Ачысьціць усе захаваныя дадзеныя" }
