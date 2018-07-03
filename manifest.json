@@ -3,8 +3,9 @@
 	"default_locale": "en",
     "name": "AutoFormer+",
     "description": "__MSG_extension_description__",
-    "version": "0.51",
+    "version": "0.52",
     "homepage_url": "http://firefoxer.ru/#afp",
+    "author": "Mykola Onyshchuk",
     
     "icons": {
 	"48":  "autoformer-plus-48.png",
