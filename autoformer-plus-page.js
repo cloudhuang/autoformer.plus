@@ -1,6 +1,22 @@
 ////////////////////////////////////////////////////////////////////////
 var g_AutoFormerPrefix = "AF1";
+var g_AutoFormerLock   = "AutoFormerLock";
+////////////////////////////////////////////////////////////////////////
+function setLock(){
+	var key_old = window.sessionStorage.getItem(g_AutoFormerLock);
+	var key_new = Date.now();
+	if(key_old == null || key_new > key_old + 5000)
+		window.sessionStorage.setItem(g_AutoFormerLock, key_new);
+} 
 
+function isLockCurrent(){
+	var key_old = window.sessionStorage.getItem(g_AutoFormerLock);
+	var key_new = Date.now();
+	var key_delta = key_new - key_old;
+	if(key_delta > 100)
+		return false;
+	return true;		
+} 
 ////////////////////////////////////////////////////////////////////////
 function canElementSave(et) 
 {
@@ -91,8 +107,10 @@ function setElementValue(et, value){
 			et.options.item(i).selected = value.indexOf(et.options.item(i).value + "@") != -1;
      }
 	 
-	var event_change = new Event("change");
-	et.dispatchEvent(event_change);
+	if(isLockCurrent()){
+		var event_change = new Event("change");
+		et.dispatchEvent(event_change);
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -125,6 +143,7 @@ function saveAll(){
 }
 
 function loadAll(){
+	setLock();
 	var elements = document.getElementsByTagName("textarea");
 	for(var i=0; i<elements.length; i++)
 		loadElement(elements.item(i));
