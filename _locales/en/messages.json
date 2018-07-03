@@ -1,19 +1,8 @@
 {
-
-"extension_description": { 
-"message": "Automatic form filler" },
-
-"save_field": { 
-"message": "Save this field only" },
-
-"save_all": { 
-"message": "Save all fields" },
-
-"load_all": { 
-"message": "Load all fields" },
-
-"clear_all": { 
-"message": "Clear all saved data" }
-
+"extension_description": { "message": "Automatic form filler" },
+"save_field": { "message": "Save this field only" },
+"save_all": { "message": "Save all fields" },
+"load_all": { "message": "Load all fields" },
+"clear_all": { "message": "Clear all saved data" }
 }
 
