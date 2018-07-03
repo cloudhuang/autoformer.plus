@@ -1,0 +1,11 @@
+{
+"extension_description": { "message": "স্বয়ংক্রিয় ফর্ম পূরণকারী" },
+"popup_menu_autoload": { "message": "স্বয়ংক্রিয় লোডিং" },
+"save_field": { "message": "শুধুমাত্র এই ক্ষেত্রটি সংরক্ষণ করুন" },
+"load_field": { "message": "শুধুমাত্র এই ক্ষেত্রটি লোড করুন" },
+"clear_field": { "message": "শুধুমাত্র এই ক্ষেত্রের ডেটা সাফ করুন" },
+"save_all": { "message": "সব ক্ষেত্র সংরক্ষণ করুন" },
+"load_all": { "message": "সমস্ত ক্ষেত্র লোড করুন" },
+"load_all_shift": { "message": "শুধুমাত্র খালি ক্ষেত্র পূরণ করতে Shift টিপুন" },
+"clear_all": { "message": "সমস্ত সংরক্ষিত ডেটা সাফ করুন" }
+}

@@ -1,0 +1,11 @@
+{
+"extension_description": { "message": "Formulare automată de formular" },
+"popup_menu_autoload": { "message": "Încărcare automată" },
+"save_field": { "message": "Salvați numai acest câmp" },
+"load_field": { "message": "Încărcați numai acest câmp" },
+"clear_field": { "message": "Ștergeți numai datele câmpului" },
+"save_all": { "message": "Salvați toate câmpurile" },
+"load_all": { "message": "Încărcați toate câmpurile" },
+"load_all_shift": { "message": "Apăsați Shift pentru a completa doar câmpurile goale" },
+"clear_all": { "message": "Ștergeți toate datele salvate" }
+}

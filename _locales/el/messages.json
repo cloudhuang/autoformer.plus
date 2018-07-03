@@ -1,0 +1,11 @@
+{
+"extension_description": { "message": "Αυτόματη πλήρωση φόρμας" },
+"popup_menu_autoload": { "message": "Αυτόματη φόρτιση" },
+"save_field": { "message": "Αποθηκεύστε μόνο αυτό το πεδίο" },
+"load_field": { "message": "Τοποθετήστε μόνο αυτό το πεδίο" },
+"clear_field": { "message": "Εκκαθαρίστε μόνο αυτά τα δεδομένα πεδίου" },
+"save_all": { "message": "Αποθηκεύστε όλα τα πεδία" },
+"load_all": { "message": "Φορτώστε όλα τα πεδία" },
+"load_all_shift": { "message": "Πατήστε το πλήκτρο Shift για να συμπληρώσετε μόνο κενά πεδία" },
+"clear_all": { "message": "Διαγράψτε όλα τα αποθηκευμένα δεδομένα" }
+}

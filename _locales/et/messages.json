@@ -1,0 +1,11 @@
+{
+"extension_description": { "message": "Automaatne vormi täitja" },
+"popup_menu_autoload": { "message": "Automaatne täitmine" },
+"save_field": { "message": "Salvesta ainult see väli" },
+"load_field": { "message": "Täida ainult see väli" },
+"clear_field": { "message": "Puhasta ainult selle andmevälja andmed" },
+"save_all": { "message": "Salvesta kõik väljad" },
+"load_all": { "message": "Täida kõik väljad" },
+"load_all_shift": { "message": "Ainult tühjade väljade täitmiseks vajutage Shift klahvi" },
+"clear_all": { "message": "Kustuta kõik salvestatud andmed" }
+}

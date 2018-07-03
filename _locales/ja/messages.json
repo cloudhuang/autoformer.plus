@@ -1,0 +1,12 @@
+{
+"extension_description": { "message": "自動フォームフィラー" },
+"popup_menu_autoload": { "message": "オートロード" },
+"save_field": { "message": "このフィールドのみを保存" },
+"load_field": { "message": "このフィールドのみを読み込む" },
+"clear_field": { "message": "このフィールドのデータのみを消去する" },
+"save_all": { "message": "すべてのフィールドを保存" },
+"load_all": { "message": "すべてのフィールドを読み込む" },
+"load_all_shift": { "message": "空白のフィールドのみを入力するにはShiftキーを押します" },
+"clear_all": { "message": "保存されたすべてのデータを消去する" }
+}
+

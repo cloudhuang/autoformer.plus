@@ -1,0 +1,12 @@
+{
+"extension_description": { "message": "حشو النموذج الأوتوماتيكي" },
+"popup_menu_autoload": { "message": "تحميل تلقائي" },
+"save_field": { "message": "حفظ هذا الحقل فقط" },
+"load_field": { "message": "تحميل هذا الحقل فقط" },
+"clear_field": { "message": "محو بيانات الحقل هذه فقط" },
+"save_all": { "message": "حفظ جميع الحقول" },
+"load_all": { "message": "تحميل جميع الحقول" },
+"load_all_shift": { "message": "اضغط على Shift لملء الحقول الفارغة فقط" },
+"clear_all": { "message": "محو جميع البيانات المحفوظة" }
+}
+

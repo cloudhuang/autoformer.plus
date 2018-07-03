@@ -1,0 +1,11 @@
+{
+"extension_description": { "message": "स्वचालित फॉर्म फिलर" },
+"popup_menu_autoload": { "message": "स्वचालित लोडिंग" },
+"save_field": { "message": "केवल इस क्षेत्र को बचाओ" },
+"load_field": { "message": "केवल इस क्षेत्र को लोड करें" },
+"clear_field": { "message": "केवल इस फ़ील्ड डेटा को साफ़ करें" },
+"save_all": { "message": "सभी क्षेत्रों को बचाओ" },
+"load_all": { "message": "सभी फ़ील्ड लोड करें" },
+"load_all_shift": { "message": "केवल खाली फ़ील्ड भरने के लिए Shift दबाएं" },
+"clear_all": { "message": "सभी सहेजे गए डेटा साफ़ करें" }
+}

@@ -1,0 +1,11 @@
+{
+"extension_description": { "message": "خودکار فارم بھرنے والا" },
+"popup_menu_autoload": { "message": "خودکار لوڈنگ" },
+"save_field": { "message": "صرف اس فیلڈ کو محفوظ کریں" },
+"load_field": { "message": "صرف اس فیلڈ کو لوڈ کریں" },
+"clear_field": { "message": "صرف اس فیلڈ کے اعداد و شمار کو صاف کریں" },
+"save_all": { "message": "تمام شعبوں کو محفوظ کریں" },
+"load_all": { "message": "تمام شعبوں کو لوڈ کریں" },
+"load_all_shift": { "message": "صرف خالی کھیتوں کو بھرنے کے لئے SHIFT دبائیں" },
+"clear_all": { "message": "تمام محفوظ کردہ ڈیٹا صاف کریں" }
+}

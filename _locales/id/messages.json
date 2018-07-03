@@ -1,0 +1,11 @@
+{
+"extension_description": { "message": "Pengisi formulir otomatis" },
+"popup_menu_autoload": { "message": "Pemuatan otomatis" },
+"save_field": { "message": "Simpan bidang ini saja" },
+"load_field": { "message": "Isikan bidang ini saja" },
+"clear_field": { "message": "Bersihkan data bidang ini saja" },
+"save_all": { "message": "Simpan semua bidang" },
+"load_all": { "message": "Muat semua bidang" },
+"load_all_shift": { "message": "Tekan Shift untuk hanya mengisi bidang kosong" },
+"clear_all": { "message": "Hapus semua data yang disimpan" }
+}

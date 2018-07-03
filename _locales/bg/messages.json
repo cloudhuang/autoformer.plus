@@ -1,0 +1,11 @@
+{
+"extension_description": { "message": "Автоматично попълване на формуляри" },
+"popup_menu_autoload": { "message": "Автоматично зареждане" },
+"save_field": { "message": "Запишете само това поле" },
+"load_field": { "message": "Заредете само това поле" },
+"clear_field": { "message": "Изчистете само тези данни от полето" },
+"save_all": { "message": "Запазете всички полета" },
+"load_all": { "message": "Заредете всички полета" },
+"load_all_shift": { "message": "Натиснете Shift, за да попълвате само празни полета" },
+"clear_all": { "message": "Изчистете всички запазени данни" }
+}

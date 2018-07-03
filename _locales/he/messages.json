@@ -1,0 +1,12 @@
+{
+"extension_description": { "message": "מילוי טופס אוטומטי" },
+"popup_menu_autoload": { "message": "טעינה אוטומטית" },
+"save_field": { "message": "שמור שדה זה בלבד" },
+"load_field": { "message": "טען שדה זה בלבד" },
+"clear_field": { "message": "נקה נתוני שדה אלה בלבד" },
+"save_all": { "message": "שמור את כל השדות" },
+"load_all": { "message": "טען את כל השדות" },
+"load_all_shift": { "message": "לחץ על Shift כדי למלא שדות ריקים בלבד" },
+"clear_all": { "message": "נקה את כל הנתונים שנשמרו" }
+}
+

@@ -1,0 +1,11 @@
+{
+"extension_description": { "message": "Pengisi bentuk automatik" },
+"popup_menu_autoload": { "message": "Beban automatik" },
+"save_field": { "message": "Simpan medan ini sahaja" },
+"load_field": { "message": "Muatkan medan ini sahaja" },
+"clear_field": { "message": "Kosongkan data medan ini sahaja" },
+"save_all": { "message": "Simpan semua medan" },
+"load_all": { "message": "Muatkan semua medan" },
+"load_all_shift": { "message": "Tekan Shift untuk mengisi medan kosong sahaja" },
+"clear_all": { "message": "Kosongkan semua data yang disimpan" }
+}

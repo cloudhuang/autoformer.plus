@@ -1,0 +1,11 @@
+{
+"extension_description": { "message": "Carrega dados salvos em formulários. O carregamento é automático, salvar é manual (dois cliques do mouse)" },
+"popup_menu_autoload": { "message": "Carga automática" },
+"save_field": { "message": "Salvar apenas esse campo" },
+"load_field": { "message": "Carregue apenas este campo" },
+"clear_field": { "message": "Limpe apenas esses dados de campo" },
+"save_all": { "message": "Salvar todos os campos" },
+"load_all": { "message": "Carregue todos os campos" },
+"load_all_shift": { "message": "Pressione Shift para preencher apenas os campos em branco" },
+"clear_all": { "message": "Limpar todos os dados salvos" }
+}

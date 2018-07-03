@@ -1,0 +1,11 @@
+{
+"extension_description": { "message": "پرکننده فرم اتوماتیک" },
+"popup_menu_autoload": { "message": "بارگیری خودکار" },
+"save_field": { "message": "فقط این فیلد را ذخیره کنید" },
+"load_field": { "message": "فقط این فیلد را وارد کنید" },
+"clear_field": { "message": "پاک کردن این داده های زمینه تنها" },
+"save_all": { "message": "همه فیلدها را ذخیره کنید" },
+"load_all": { "message": "تمام زمینه ها را بارگیری کنید" },
+"load_all_shift": { "message": "SHIFT را فشار دهید تا فقط فیلدهای خالی را پر کنید" },
+"clear_all": { "message": "پاک کردن تمام داده های ذخیره شده" }
+}
