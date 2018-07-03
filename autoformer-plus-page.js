@@ -2,7 +2,9 @@
 ////////////////////////////////////////////////////////////////////////
 var g_AutoFormerPrefix = "AF1";
 var g_AutoFormerLock   = "AutoFormerLock";
-var g_ElementsFilledCount = 0;
+var g_ElementsLoaded = 0;
+var g_ElementsSaved = 0;
+var g_ElementsCleared = 0;
 var g_MutationObserver = null;
 ////////////////////////////////////////////////////////////////////////
 function setLock(){
@@ -38,8 +40,10 @@ function getInputsCount()
 	return inputs_count;
 }
 
-function hasStoredData()
+function getRecordsCount()
 {
+	var records_count = 0;
+	
 	var ls = window.localStorage;
 	var ls_length = ls.length;
 	var whanted_prefix = g_AutoFormerPrefix + "@";
@@ -47,10 +51,10 @@ function hasStoredData()
 	for(var i=0; i<ls_length; i++){
 		var key = ls.key(i);
 		if(key.indexOf(whanted_prefix) != -1)
-			return 1;
+			records_count++;
 	}
 	
-	return 0;
+	return records_count;
 }
 
 function canElementSave(et) 
@@ -154,11 +158,16 @@ function setElementValue(et, value){
 ////////////////////////////////////////////////////////////////////////
 
 function saveElement(et){
+	var is_saved = 0;
 	if(canElementSave(et)){
 		var key = g_AutoFormerPrefix + "@" + getElementFormName(et) + "@" + getElementName (et);
 		var value = getElementValue(et);
-		window.localStorage.setItem(escape(key), escape(value));
+		if(value.length){
+			window.localStorage.setItem(escape(key), escape(value));
+			is_saved = 1;
+		}
 	}
+	return is_saved;
 }
 
 function loadElement(et){
@@ -173,40 +182,52 @@ function loadElement(et){
 }
 
 function clearElement(et){
+	var is_cleared = 0;
 	var key = g_AutoFormerPrefix + "@" + getElementFormName(et) + "@" + getElementName(et);
-	window.localStorage.removeItem(escape(key));
+	if(window.localStorage.getItem(escape(key)) != null){
+		window.localStorage.removeItem(escape(key));
+		is_cleared = 1;
+	}
+	return is_cleared;
 }
 
 function saveAll(){
-	var elements = document.getElementsByTagName("textarea");
-	for(var i=0; i<elements.length; i++)
-		saveElement(elements.item(i));
-	elements = document.getElementsByTagName("input");
-	for(var i=0; i<elements.length; i++)
-		saveElement(elements.item(i));
-	elements = document.getElementsByTagName("select");
-	for(var i=0; i<elements.length; i++)
-		saveElement(elements.item(i));
-}
-
-function loadAll(){
-	g_ElementsFilledCount = 0;
+	g_ElementsSaved = 0;
 	
 	var elements = document.getElementsByTagName("textarea");
 	for(var i=0; i<elements.length; i++)
-		g_ElementsFilledCount += loadElement(elements.item(i));
+		g_ElementsSaved += saveElement(elements.item(i));
 	elements = document.getElementsByTagName("input");
 	for(var i=0; i<elements.length; i++)
-		g_ElementsFilledCount += loadElement(elements.item(i));
+		g_ElementsSaved += saveElement(elements.item(i));
 	elements = document.getElementsByTagName("select");
 	for(var i=0; i<elements.length; i++)
-		g_ElementsFilledCount += loadElement(elements.item(i));
+		g_ElementsSaved += saveElement(elements.item(i));
 		
-	if(g_ElementsFilledCount)
-		chrome.runtime.sendMessage({msg:"autoload-count", count:g_ElementsFilledCount});
+	if(g_ElementsSaved)	
+		chrome.runtime.sendMessage({msg:"save-count", count:g_ElementsSaved});
+}
+
+function loadAll(){
+	g_ElementsLoaded = 0;
+	
+	var elements = document.getElementsByTagName("textarea");
+	for(var i=0; i<elements.length; i++)
+		g_ElementsLoaded += loadElement(elements.item(i));
+	elements = document.getElementsByTagName("input");
+	for(var i=0; i<elements.length; i++)
+		g_ElementsLoaded += loadElement(elements.item(i));
+	elements = document.getElementsByTagName("select");
+	for(var i=0; i<elements.length; i++)
+		g_ElementsLoaded += loadElement(elements.item(i));
+		
+	if(g_ElementsLoaded)
+		chrome.runtime.sendMessage({msg:"load-count", count:g_ElementsLoaded});
 }
 
 function clearAll(){
+	g_ElementsCleared = 0;
+	
 	var ls = window.localStorage;
 	var ls_length = ls.length;
 	var whanted_prefix = g_AutoFormerPrefix + "@";
@@ -214,9 +235,14 @@ function clearAll(){
 	for(var i=ls_length-1; i>=0; i--)
 	{
 		var key = ls.key(i);
-		if(key.indexOf(whanted_prefix) != -1)
+		if(key.indexOf(whanted_prefix) != -1){
 			ls.removeItem(key);
+			g_ElementsCleared++; 
+		}
 	}
+	
+	if(g_ElementsCleared)
+		chrome.runtime.sendMessage({msg:"clear-count", count:g_ElementsCleared});
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -250,22 +276,28 @@ function stopAutoload(){
 }
 ////////////////////////////////////////////////////////////////////////
 function on_messages_content(request, sender, sendResponse) {
-console.log("=== on_messages_content::request.msg:"+request.msg);		
+//console.log("=== on_messages_content::request.msg:"+request.msg);		
 	
 	if(sender.id != chrome.runtime.id)
 		return;
 
-	if(request.msg === "save_field")
-		saveElement(document.activeElement);
+	if(request.msg === "save_field"){
+		g_ElementsSaved = saveElement(document.activeElement);
+		if(g_ElementsSaved)	
+			chrome.runtime.sendMessage({msg:"save-count", count:g_ElementsSaved});
+	}
 		
 	if(request.msg === "load_field"){
-		g_ElementsFilledCount = loadElement(document.activeElement);
-		if(g_ElementsFilledCount)
-			chrome.runtime.sendMessage({msg:"autoload-count", count:g_ElementsFilledCount});
+		g_ElementsLoaded = loadElement(document.activeElement);
+		if(g_ElementsLoaded)
+			chrome.runtime.sendMessage({msg:"load-count", count:g_ElementsLoaded});
 	}
 
-	if(request.msg === "clear_field")
-		clearElement(document.activeElement);
+	if(request.msg === "clear_field"){
+		g_ElementsCleared = clearElement(document.activeElement);
+		if(g_ElementsCleared)
+			chrome.runtime.sendMessage({msg:"clear-count", count:g_ElementsCleared});
+	}
 	
 	if(request.msg === "save_all")
 		saveAll();
@@ -283,9 +315,9 @@ console.log("=== on_messages_content::request.msg:"+request.msg);
 		stopAutoload();
 		
 	if(request.msg === "get-popup-enable"){
-		var has_inputs = getInputsCount();
-		var has_data = hasStoredData();
-		chrome.runtime.sendMessage({msg:"set-popup-enable", has_inputs:has_inputs, has_data:has_data});
+		var inputs_count = getInputsCount();
+		var records_count = getRecordsCount();
+		chrome.runtime.sendMessage({msg:"set-popup-enable", inputs_count:inputs_count, records_count:records_count});
 	}
 }
 chrome.runtime.onMessage.addListener(on_messages_content);

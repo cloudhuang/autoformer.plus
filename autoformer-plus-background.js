@@ -58,8 +58,20 @@ function on_messages_background(request, sender) {
 	if(request.msg === "can-autoload" && g_autoload)
 		chrome.tabs.sendMessage(sender.tab.id, {msg:"do-autoload"});
 		
-	if(request.msg === "autoload-count")
+	if(request.msg === "load-count"){
 		chrome.browserAction.setBadgeText({text:request.count.toString(), tabId:sender.tab.id});	
+		chrome.browserAction.setBadgeBackgroundColor({color:"#ff0000", tabId:sender.tab.id});	
+	}
+		
+	if(request.msg === "save-count"){
+		chrome.browserAction.setBadgeText({text:request.count.toString(), tabId:sender.tab.id});	
+		chrome.browserAction.setBadgeBackgroundColor({color:"#0000ff", tabId:sender.tab.id});	
+	}
+		
+	if(request.msg === "clear-count"){
+		chrome.browserAction.setBadgeText({text:request.count.toString(), tabId:sender.tab.id});	
+		chrome.browserAction.setBadgeBackgroundColor({color:"#00bb00", tabId:sender.tab.id});	
+	}
 }
 chrome.runtime.onMessage.addListener(on_messages_background); 
 ////////////////////////////////////////////////////////////////////////
