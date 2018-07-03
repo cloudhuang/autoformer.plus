@@ -18,7 +18,7 @@ function isLockCurrent(){
 	var key_old = window.sessionStorage.getItem(g_AutoFormerLock);
 	var key_new = Date.now();
 	var key_delta = key_new - key_old;
-	if(key_delta > 100)
+	if(key_delta > 300)
 		return false;
 	return true;		
 } 
@@ -156,17 +156,17 @@ function setElementValue(et, value){
 }
 
 ////////////////////////////////////////////////////////////////////////
-
 function saveElement(et){
 	var is_saved = 0;
 	if(canElementSave(et)){
 		var key = g_AutoFormerPrefix + "@" + getElementFormName(et) + "@" + getElementName (et);
 		var value = getElementValue(et);
-		if(value.length){
+		if((typeof(value) == "string" && value.length) || typeof(value) == "boolean"){
 			window.localStorage.setItem(escape(key), escape(value));
 			is_saved = 1;
 		}
 	}
+
 	return is_saved;
 }
 
@@ -208,15 +208,27 @@ function saveAll(){
 		chrome.runtime.sendMessage({msg:"save-count", count:g_ElementsSaved});
 }
 
-function loadAll(){
+function loadAll(blankOnly){
 	g_ElementsLoaded = 0;
 	
 	var elements = document.getElementsByTagName("textarea");
 	for(var i=0; i<elements.length; i++)
-		g_ElementsLoaded += loadElement(elements.item(i));
+		if(blankOnly){
+			if(elements.item(i).value.length == 0)
+				g_ElementsLoaded += loadElement(elements.item(i));
+		}
+		else
+			g_ElementsLoaded += loadElement(elements.item(i));
+		
 	elements = document.getElementsByTagName("input");
 	for(var i=0; i<elements.length; i++)
-		g_ElementsLoaded += loadElement(elements.item(i));
+		if(blankOnly){
+			if(elements.item(i).value.length == 0)
+				g_ElementsLoaded += loadElement(elements.item(i));
+		}
+		else
+			g_ElementsLoaded += loadElement(elements.item(i));
+		
 	elements = document.getElementsByTagName("select");
 	for(var i=0; i<elements.length; i++)
 		g_ElementsLoaded += loadElement(elements.item(i));
@@ -255,7 +267,7 @@ function runMutationObserver(){
 			for(var i=0; i<mutation.addedNodes.length; i++){
 				var node = mutation.addedNodes.item(i);	
 				if(node.nodeName == "FORM")
-					loadAll();
+					loadAll(0);
 			}
 		}
 	});
@@ -264,7 +276,7 @@ function runMutationObserver(){
 ////////////////////////////////////////////////////////////////////////
 function doAutoload(){
 	setLock();
-	loadAll();
+	loadAll(0);
 	runMutationObserver();
 }
 
@@ -303,7 +315,7 @@ function on_messages_content(request, sender, sendResponse) {
 		saveAll();
 	
 	if(request.msg === "load_all")
-		loadAll();
+		loadAll(request.mode_ext);
 	
 	if(request.msg === "clear_all")
 		clearAll();

@@ -6,5 +6,7 @@
 "clear_field": { "message": "Effacer les données de ce champ uniquement" },
 "save_all": { "message": "Enregistrer tous les champs" },
 "load_all": { "message": "Charger tous les champs" },
+"load_all_shift": { "message": "Appuyez sur Shift pour remplir uniquement les champs vides" },
 "clear_all": { "message": "Effacer tous les champs enregistrés" }
 }
+

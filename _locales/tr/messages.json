@@ -6,6 +6,6 @@
 "clear_field": { "message": "Yalnızca bu alan verilerini temizle" },
 "save_all": { "message": "Tüm alanları kaydet" },
 "load_all": { "message": "Tüm alanları yükle" },
+"load_all_shift": { "message": "Sadece boş alanları doldurmak için Shift tuşuna basın" },
 "clear_all": { "message": "Kayıtlı tüm veriyi sil" }
 }
-

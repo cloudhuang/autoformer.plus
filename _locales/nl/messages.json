@@ -6,6 +6,6 @@
 "clear_field": { "message": "Wis alleen deze veldgegevens" },
 "save_all": { "message": "Bewaar alle velden" },
 "load_all": { "message": "Laad alle velden" },
+"load_all_shift": { "message": "Druk op Shift om alleen lege velden in te vullen" },
 "clear_all": { "message": "Verwijder alle opgeslagen gegevens" }
 }
-

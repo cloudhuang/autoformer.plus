@@ -6,6 +6,6 @@
 "clear_field": { "message": "仅清除此字段数据" },
 "save_all": { "message": "保存所有区域的输入内容" },
 "load_all": { "message": "载入已有区域的内容" },
+"load_all_shift": { "message": "按Shift键仅填充空白字段" },
 "clear_all": { "message": "清除所有已保存的数据" }
 }
-

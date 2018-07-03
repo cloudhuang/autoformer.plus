@@ -6,6 +6,6 @@
 "clear_field": { "message": "Rensa endast fältdata" },
 "save_all": { "message": "Spara alla fält" },
 "load_all": { "message": "Ladda alla fält" },
+"load_all_shift": { "message": "Tryck på Skift för att bara fylla i tomma fält" },
 "clear_all": { "message": "Rensa all sparad data" }
 }
-

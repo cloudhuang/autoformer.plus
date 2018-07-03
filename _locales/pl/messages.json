@@ -6,6 +6,6 @@
 "clear_field": { "message": "Wyczyść dane tylko tego pola" },
 "save_all": { "message": "Zapisz wszystkie pola" },
 "load_all": { "message": "Załaduj wszystkie pola" },
+"load_all_shift": { "message": "Naciśnij Shift, aby wypełnić tylko puste pola" },
 "clear_all": { "message": "Wyczyść wszystkie zapisane dane" }
 }
-

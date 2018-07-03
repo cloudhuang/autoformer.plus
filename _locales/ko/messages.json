@@ -6,6 +6,6 @@
 "clear_field": { "message": "이 필드 데이터 만 지우기" },
 "save_all": { "message": "모든 필드 저장" },
 "load_all": { "message": "필드 불러오기" },
+"load_all_shift": { "message": "빈 필드 만 채우려면 Shift 키를 누릅니다." },
 "clear_all": { "message": "모든 저장된 데이터 정리" }
 }
-

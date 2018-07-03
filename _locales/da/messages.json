@@ -6,5 +6,6 @@
 "clear_field": { "message": "Ryd kun denne feltdata" },
 "save_all": { "message": "Gem alle felter" },
 "load_all": { "message": "Indlæs felter" },
+"load_all_shift": { "message": "Tryk Skift for kun at udfylde tomme felter" },
 "clear_all": { "message": "Ryd alle gemte data" }
 }

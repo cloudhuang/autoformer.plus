@@ -6,5 +6,6 @@
 "clear_field": { "message": "Poista vain tämän kenttätiedot" },
 "save_all": { "message": "Tallenna kaikki kentät" },
 "load_all": { "message": "Lataa kaikki kentät" },
+"load_all_shift": { "message": "Paina Shift-näppäintä täyttääksesi vain tyhjät kentät" },
 "clear_all": { "message": "Poista kaikki tallennettu tieto" }
 }

@@ -6,5 +6,6 @@
 "clear_field": { "message": "Löschen Sie nur diese Felddaten" },
 "save_all": { "message": "Speichere alle Felder" },
 "load_all": { "message": "Lade alle Felder" },
+"load_all_shift": { "message": "Press Shift to fill blank fields only" },
 "clear_all": { "message": "Lösche alle gespeicherte Datein" }
 }

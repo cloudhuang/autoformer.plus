@@ -6,5 +6,6 @@
 "clear_field": { "message": "Vymažte iba tieto dáta v poli" },
 "save_all": { "message": "Uložte všetky polia" },
 "load_all": { "message": "Načítať všetky polia" },
+"load_all_shift": { "message": "Stlačením tlačidla Shift vyplňte iba prázdne polia" },
 "clear_all": { "message": "Vymažte všetky uložené údaje" }
 }
