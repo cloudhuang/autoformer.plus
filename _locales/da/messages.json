@@ -1,0 +1,18 @@
+{
+
+"extension_description": { 
+"message": "Indlæser gemte data i formularer. Indlæsning foregår automatisk, gem manuelt (med 2 museklik)" },
+
+"save_field": { 
+"message": "Gem kun dette felt" },
+
+"save_all": { 
+"message": "Gem alle felter" },
+
+"load_all": { 
+"message": "Indlæs felter" },
+
+"clear_all": { 
+"message": "Ryd alle gemte data" }
+
+}

@@ -1,0 +1,19 @@
+{
+
+"extension_description": { 
+"message": "Det laddar sparad data i formulär. Laddningen sker automatiskt, sparandet sker manuellt (2 musklick)" },
+
+"save_field": { 
+"message": "Spara enbart detta fält" },
+
+"save_all": { 
+"message": "Save all fields" },
+
+"load_all": { 
+"message": "Spara alla fält" },
+
+"clear_all": { 
+"message": "Rensa all sparad data" }
+
+}
+

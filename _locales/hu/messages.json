@@ -1,0 +1,19 @@
+{
+
+"extension_description": { 
+"message": "Betölti az elmentett adatokat az űrlapokba. A betöltés automatikus, a mentés kézileg történik (2 egérkattintással)." },
+
+"save_field": { 
+"message": "Aktuális mező mentése" },
+
+"save_all": { 
+"message": "Összes mező mentése" },
+
+"load_all": { 
+"message": "Mezők betöltése" },
+
+"clear_all": { 
+"message": "Összes tárolt adat törlése" }
+
+}
+

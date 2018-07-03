@@ -1,0 +1,19 @@
+{
+
+"extension_description": { 
+"message": "Saves your time using automatic form filling with saved data." },
+
+"save_field": { 
+"message": "Save this field only" },
+
+"save_all": { 
+"message": "Save all fields" },
+
+"load_all": { 
+"message": "Load all fields" },
+
+"clear_all": { 
+"message": "Clear all saved data" }
+
+}
+

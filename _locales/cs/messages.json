@@ -1,0 +1,18 @@
+{
+
+"extension_description": { 
+"message": "Načítá uložená data z formulářů. Načítání je automatické, ukládání manuální (na dvě klepnutí myší)" },
+
+"save_field": { 
+"message": "Uložit pouze toto pole" },
+
+"save_all": { 
+"message": "Uložit všechna pole" },
+
+"load_all": { 
+"message": "Načíst všechna pole" },
+
+"clear_all": { 
+"message": "Smazat všechna uložená data" }
+
+}

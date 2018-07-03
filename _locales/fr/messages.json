@@ -1,0 +1,18 @@
+{
+
+"extension_description": { 
+"message": "Charge les informations enregistrées dans les formulaires. Le chargement est automatique, enregistrement manuel (2 clics de sourie)" },
+
+"save_field": { 
+"message": "Enregistrer seulement ce champ" },
+
+"save_all": { 
+"message": "Enregistrer tous les champs" },
+
+"load_all": { 
+"message": "Charger les champs" },
+
+"clear_all": { 
+"message": "Effacer tous les champs enregistrés" }
+
+}

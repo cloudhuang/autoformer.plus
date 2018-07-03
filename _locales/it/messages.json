@@ -1,0 +1,19 @@
+{
+
+"extension_description": { 
+"message": "Permette di caricare i dati salvati nei moduli. Il caricamento è automatico, il salvataggio manuale (due clic del mouse)" },
+
+"save_field": { 
+"message": "Salva solo questo campo" },
+
+"save_all": { 
+"message": "Salva tutti i campi" },
+
+"load_all": { 
+"message": "Carica i campi" },
+
+"clear_all": { 
+"message": "Elimina tutti i dati salvati" }
+
+}
+

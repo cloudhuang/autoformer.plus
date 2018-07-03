@@ -1,0 +1,19 @@
+{
+
+"extension_description": { 
+"message": "Wypełnia formularze na podstawie wcześniej zapisanych danych. wypełnianie jest automatyczne, zapisywanie jest ręczne (należy dwukrotnie kliknąć myszą)" },
+
+"save_field": { 
+"message": "Zapisz tylko to pole" },
+
+"save_all": { 
+"message": "Zapisz wszystkie pola" },
+
+"load_all": { 
+"message": "Wypełnij pola" },
+
+"clear_all": { 
+"message": "Wyczyść wszystkie zapisane dane" }
+
+}
+

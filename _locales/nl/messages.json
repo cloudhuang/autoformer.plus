@@ -1,0 +1,19 @@
+{
+
+"extension_description": { 
+"message": "Dit laadt bewaarde gegevens automatisch in formulieren. Inladen gaat automatisch, bewaren gebeurt manueel. (dubbelklik)" },
+
+"save_field": { 
+"message": "Bewaar enkel dit veld" },
+
+"save_all": { 
+"message": "Bewaar alle velden" },
+
+"load_all": { 
+"message": "Laadt velden in" },
+
+"clear_all": { 
+"message": "Verwijder alle opgeslagen gegevens" }
+
+}
+

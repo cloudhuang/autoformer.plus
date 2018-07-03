@@ -1,0 +1,19 @@
+{
+
+"extension_description": { 
+"message": "Dopĺňa uložené údaje do formulárov. Načítavanie je automatické, ukladanie je manuálne (2 kliknutia myšou)" },
+
+"save_field": { 
+"message": "Uložiť obsah iba tohto textového poľa" },
+
+"save_all": { 
+"message": "Uložiť obsah všetkých textových polí" },
+
+"load_all": { 
+"message": "Načítať obsah textových polí" },
+
+"clear_all": { 
+"message": "Vymazať všetky uložené údaje" }
+
+}
+

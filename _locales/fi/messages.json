@@ -1,0 +1,18 @@
+{
+
+"extension_description": { 
+"message": "Lataa tallennetun tiedon.Lataaminen on automaattista, tallentaminen on manuaalista(2 hiiren klikkausta)" },
+
+"save_field": { 
+"message": "Tallenna vain tämä kenttä" },
+
+"save_all": { 
+"message": "Tallenna kaikki kentät" },
+
+"load_all": { 
+"message": "Lataa kentät" },
+
+"clear_all": { 
+"message": "Poista kaikki tallennettu tieto" }
+
+}

@@ -1,0 +1,19 @@
+{
+
+"extension_description": { 
+"message": "该扩展可以载入已保存的数据到表单。载入数据是自动的，而保存数据是手动的(只需要点击鼠标两次)" },
+
+"save_field": { 
+"message": "仅保存当前区域的输入内容" },
+
+"save_all": { 
+"message": "保存所有区域的输入内容" },
+
+"load_all": { 
+"message": "载入已有区域的内容" },
+
+"clear_all": { 
+"message": "清除所有已保存的数据" }
+
+}
+
