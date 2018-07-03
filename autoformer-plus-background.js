@@ -42,12 +42,19 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 });
 ////////////////////////////////////////////////////////////////////////
 function on_messages_background(request, sender) {
+//console.log("=== on_messages_background::request.msg:"+request.msg);		
+
 	if(request.msg === "get-popup-autoload" && g_autoload)
 		chrome.runtime.sendMessage({msg:"set-popup-autoload"});
 		
 	if(request.msg === "change-option-autoload"){
-		if(g_autoload)
+		if(g_autoload){
 			g_autoload = 0;
+			chrome.tabs.query({}, (result) => {
+				for(var tab of result)
+					chrome.tabs.sendMessage(tab.id, {msg:"stop-autoload"});
+			});				
+		}
 		else
 			g_autoload = 1;
 		window.localStorage.setItem("AF1_autoload", g_autoload);		

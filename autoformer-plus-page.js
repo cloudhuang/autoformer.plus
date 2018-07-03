@@ -1,7 +1,9 @@
+//console.log("=== autoformer_content_script_start: "+document.location.href);		
 ////////////////////////////////////////////////////////////////////////
 var g_AutoFormerPrefix = "AF1";
 var g_AutoFormerLock   = "AutoFormerLock";
 var g_ElementsFilledCount = 0;
+var g_MutationObserver = null;
 ////////////////////////////////////////////////////////////////////////
 function setLock(){
 	var key_old = window.sessionStorage.getItem(g_AutoFormerLock);
@@ -19,6 +21,17 @@ function isLockCurrent(){
 	return true;		
 } 
 ////////////////////////////////////////////////////////////////////////
+function isFormElement(et){ 
+	if(et == null || et.nodeName == null)
+		return false;
+		
+	var tag = et.nodeName.toString().toLowerCase();
+	if(tag == "input" || tag == "textarea" || tag == "select")
+		return true;
+	
+	return false;	
+}
+
 function canElementSave(et) 
 {
 	if(et.offsetWidth < 1) // We don`t save hiddent inputs
@@ -125,12 +138,14 @@ function saveElement(et){
 }
 
 function loadElement(et){
+	var is_loaded = 0;
 	var key = g_AutoFormerPrefix + "@" + getElementFormName(et) + "@" + getElementName(et);
 	var value = window.localStorage.getItem(escape(key));
 	if(value != null && value.length){
 		setElementValue(et, unescape(value));
-		g_ElementsFilledCount++;
+		is_loaded = 1;
 	}
+	return is_loaded;
 }
 
 function clearElement(et){
@@ -155,13 +170,13 @@ function loadAll(){
 	
 	var elements = document.getElementsByTagName("textarea");
 	for(var i=0; i<elements.length; i++)
-		loadElement(elements.item(i));
+		g_ElementsFilledCount += loadElement(elements.item(i));
 	elements = document.getElementsByTagName("input");
 	for(var i=0; i<elements.length; i++)
-		loadElement(elements.item(i));
+		g_ElementsFilledCount += loadElement(elements.item(i));
 	elements = document.getElementsByTagName("select");
 	for(var i=0; i<elements.length; i++)
-		loadElement(elements.item(i));
+		g_ElementsFilledCount += loadElement(elements.item(i));
 		
 	if(g_ElementsFilledCount)
 		chrome.runtime.sendMessage({msg:"autoload-count", count:g_ElementsFilledCount});
@@ -179,10 +194,35 @@ function clearAll(){
 			ls.removeItem(key);
 	}
 }
+
+////////////////////////////////////////////////////////////////////////
+function runMutationObserver(){
+	if(g_MutationObserver != null)
+		return;
+
+	g_MutationObserver = new MutationObserver(function(mutationsList){
+		for(var mutation of mutationsList){
+			for(var i=0; i<mutation.addedNodes.length; i++){
+				var node = mutation.addedNodes.item(i);	
+				if(node.nodeName == "FORM")
+					loadAll();
+			}
+		}
+	});
+	g_MutationObserver.observe(document.body, {subtree:true, childList:true});
+}
 ////////////////////////////////////////////////////////////////////////
 function doAutoload(){
 	setLock();
 	loadAll();
+	runMutationObserver();
+}
+
+function stopAutoload(){
+	if(g_MutationObserver){
+		g_MutationObserver.disconnect();
+		g_MutationObserver = null;
+	}
 }
 ////////////////////////////////////////////////////////////////////////
 function on_messages_content(request, sender, sendResponse) {
@@ -192,10 +232,7 @@ function on_messages_content(request, sender, sendResponse) {
 		saveElement(document.activeElement);
 		
 	if(request.msg === "load_field"){
-		g_ElementsFilledCount = 0;
-		
-		loadElement(document.activeElement);
-		
+		g_ElementsFilledCount = loadElement(document.activeElement);
 		if(g_ElementsFilledCount)
 			chrome.runtime.sendMessage({msg:"autoload-count", count:g_ElementsFilledCount});
 	}
@@ -214,7 +251,11 @@ function on_messages_content(request, sender, sendResponse) {
 		
 	if(request.msg === "do-autoload")
 		doAutoload();
+		
+	if(request.msg === "stop-autoload")
+		stopAutoload();
 }
 chrome.runtime.onMessage.addListener(on_messages_content);
 chrome.runtime.sendMessage({msg:"can-autoload"});
+//console.log("=== autoformer_content_script_end: "+document.location.href);		
 ////////////////////////////////////////////////////////////////////////
