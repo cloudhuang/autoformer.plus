@@ -1,18 +1,10 @@
 {
-
-"extension_description": { 
-"message": "Es lädt gespeicherte Datein in Formularen. Automatisches laden, manuelles speichern (2 Maus klick)" },
-
-"save_field": { 
-"message": "Speichere nur dieses Feld" },
-
-"save_all": { 
-"message": "Speichere alle Felder" },
-
-"load_all": { 
-"message": "Lade Felder" },
-
-"clear_all": { 
-"message": "Lösche alle gespeicherte Datein" }
-
+"extension_description": { "message": "Es lädt gespeicherte Datein in Formularen. Automatisches laden, manuelles speichern (2 Maus klick)" },
+"popup_menu_autoload": { "message": "Autoladen" },
+"save_field": { "message": "Speichere Sie nur dieses Feld" },
+"load_field": { "message": "Laden Sie nur dieses Feld" },
+"clear_field": { "message": "Löschen Sie nur diese Felddaten" },
+"save_all": { "message": "Speichere alle Felder" },
+"load_all": { "message": "Lade alle Felder" },
+"clear_all": { "message": "Lösche alle gespeicherte Datein" }
 }

@@ -1,6 +1,7 @@
 ////////////////////////////////////////////////////////////////////////
 var g_AutoFormerPrefix = "AF1";
 var g_AutoFormerLock   = "AutoFormerLock";
+var g_ElementsFilledCount = 0;
 ////////////////////////////////////////////////////////////////////////
 function setLock(){
 	var key_old = window.sessionStorage.getItem(g_AutoFormerLock);
@@ -126,8 +127,15 @@ function saveElement(et){
 function loadElement(et){
 	var key = g_AutoFormerPrefix + "@" + getElementFormName(et) + "@" + getElementName(et);
 	var value = window.localStorage.getItem(escape(key));
-	if(value != null && value.length)
+	if(value != null && value.length){
 		setElementValue(et, unescape(value));
+		g_ElementsFilledCount++;
+	}
+}
+
+function clearElement(et){
+	var key = g_AutoFormerPrefix + "@" + getElementFormName(et) + "@" + getElementName(et);
+	window.localStorage.removeItem(escape(key));
 }
 
 function saveAll(){
@@ -143,7 +151,8 @@ function saveAll(){
 }
 
 function loadAll(){
-	setLock();
+	g_ElementsFilledCount = 0;
+	
 	var elements = document.getElementsByTagName("textarea");
 	for(var i=0; i<elements.length; i++)
 		loadElement(elements.item(i));
@@ -153,6 +162,9 @@ function loadAll(){
 	elements = document.getElementsByTagName("select");
 	for(var i=0; i<elements.length; i++)
 		loadElement(elements.item(i));
+		
+	if(g_ElementsFilledCount)
+		chrome.runtime.sendMessage({msg:"autoload-count", count:g_ElementsFilledCount});
 }
 
 function clearAll(){
@@ -167,22 +179,42 @@ function clearAll(){
 			ls.removeItem(key);
 	}
 }
-
 ////////////////////////////////////////////////////////////////////////
-function msg_from_background(request, sender, sendResponse) {
-	if(request.type === "save_field")
-		saveElement(document.activeElement);
-	
-	if(request.type === "save_all")
-		saveAll()
-	
-	if(request.type === "load_all")
-		loadAll()
-	
-	if(request.type === "clear_all")
-		clearAll()
+function doAutoload(){
+	setLock();
+	loadAll();
 }
-chrome.runtime.onMessage.addListener(msg_from_background);
-loadAll();
 ////////////////////////////////////////////////////////////////////////
-//console.log("=== load 1 field ==="+getElementName(document.activeElement));
+function on_messages_content(request, sender, sendResponse) {
+//console.log("=== on_messages_content::request.msg:"+request.msg);		
+
+	if(request.msg === "save_field")
+		saveElement(document.activeElement);
+		
+	if(request.msg === "load_field"){
+		g_ElementsFilledCount = 0;
+		
+		loadElement(document.activeElement);
+		
+		if(g_ElementsFilledCount)
+			chrome.runtime.sendMessage({msg:"autoload-count", count:g_ElementsFilledCount});
+	}
+
+	if(request.msg === "clear_field")
+		clearElement(document.activeElement);
+	
+	if(request.msg === "save_all")
+		saveAll();
+	
+	if(request.msg === "load_all")
+		loadAll();
+	
+	if(request.msg === "clear_all")
+		clearAll();
+		
+	if(request.msg === "do-autoload")
+		doAutoload();
+}
+chrome.runtime.onMessage.addListener(on_messages_content);
+chrome.runtime.sendMessage({msg:"can-autoload"});
+////////////////////////////////////////////////////////////////////////

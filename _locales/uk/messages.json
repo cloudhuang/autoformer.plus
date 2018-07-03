@@ -1,19 +1,11 @@
 {
-
-"extension_description": { 
-"message": "Автоматично заповнює форми попередньо збереженою інформацією." },
-
-"save_field": { 
-"message": "Зберегти лише це поле" },
-
-"save_all": { 
-"message": "Зберегти всі поля" },
-
-"load_all": { 
-"message": "Заповнити поля" },
-
-"clear_all": { 
-"message": "Почистити всі збережені дані" }
-
+"extension_description": { "message": "Автоматично заповнює форми попередньо збереженою інформацією." },
+"popup_menu_autoload": { "message": "Автозаповнювання" },
+"save_field": { "message": "Зберегти лише це поле" },
+"load_field": { "message": "Заповнити лише це поле" },
+"clear_field": { "message": "Почистити дані лише цього поля" },
+"save_all": { "message": "Зберегти всі поля" },
+"load_all": { "message": "Заповнити всі поля" },
+"clear_all": { "message": "Почистити всі збережені дані" }
 }
 

@@ -1,19 +1,11 @@
 {
-
-"extension_description": { 
-"message": "Wypełnia formularze na podstawie wcześniej zapisanych danych. wypełnianie jest automatyczne, zapisywanie jest ręczne (należy dwukrotnie kliknąć myszą)" },
-
-"save_field": { 
-"message": "Zapisz tylko to pole" },
-
-"save_all": { 
-"message": "Zapisz wszystkie pola" },
-
-"load_all": { 
-"message": "Wypełnij pola" },
-
-"clear_all": { 
-"message": "Wyczyść wszystkie zapisane dane" }
-
+"extension_description": { "message": "Wypełnia formularze na podstawie wcześniej zapisanych danych. wypełnianie jest automatyczne, zapisywanie jest ręczne (należy dwukrotnie kliknąć myszą)" },
+"popup_menu_autoload": { "message": "Automatyczne ładowanie" },
+"save_field": { "message": "Zapisz tylko to pole" },
+"load_field": { "message": "Załaduj tylko to pole" },
+"clear_field": { "message": "Wyczyść dane tylko tego pola" },
+"save_all": { "message": "Zapisz wszystkie pola" },
+"load_all": { "message": "Załaduj wszystkie pola" },
+"clear_all": { "message": "Wyczyść wszystkie zapisane dane" }
 }
 

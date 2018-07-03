@@ -1,19 +1,11 @@
 {
-
-"extension_description": { 
-"message": "Det laddar sparad data i formulär. Laddningen sker automatiskt, sparandet sker manuellt (2 musklick)" },
-
-"save_field": { 
-"message": "Spara enbart detta fält" },
-
-"save_all": { 
-"message": "Save all fields" },
-
-"load_all": { 
-"message": "Spara alla fält" },
-
-"clear_all": { 
-"message": "Rensa all sparad data" }
-
+"extension_description": { "message": "Det laddar sparad data i formulär. Laddningen sker automatiskt, sparandet sker manuellt (2 musklick)" },
+"popup_menu_autoload": { "message": "Autoladda" },
+"save_field": { "message": "Spara enbart detta fält" },
+"load_field": { "message": "Ladda endast detta fält" },
+"clear_field": { "message": "Rensa endast fältdata" },
+"save_all": { "message": "Spara alla fält" },
+"load_all": { "message": "Ladda alla fält" },
+"clear_all": { "message": "Rensa all sparad data" }
 }
 

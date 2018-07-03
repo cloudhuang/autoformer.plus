@@ -1,18 +1,10 @@
 {
-
-"extension_description": { 
-"message": "Сохранение и автозагрузка данных в поля форм." },
-
-"save_field": { 
-"message": "Сохранить только это поле" },
-
-"save_all": { 
-"message": "Сохранить все поля" },
-
-"load_all": { 
-"message": "Загрузить данные в поля" },
-
-"clear_all": { 
-"message": "Очистить все сохраненнные данные" }
-
+"extension_description": { "message": "Сохранение и автозагрузка данных в поля форм." },
+"popup_menu_autoload": { "message": "Автозагрузка" },
+"save_field": { "message": "Сохранить только это поле" },
+"load_field": { "message": "Загрузить только это поле" },
+"clear_field": { "message": "Очистить данные только этого поля" },
+"save_all": { "message": "Сохранить все поля" },
+"load_all": { "message": "Загрузить все поля" },
+"clear_all": { "message": "Очистить все сохраненнные данные" }
 }

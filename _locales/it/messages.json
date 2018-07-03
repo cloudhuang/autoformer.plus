@@ -1,19 +1,11 @@
 {
-
-"extension_description": { 
-"message": "Permette di caricare i dati salvati nei moduli. Il caricamento è automatico, il salvataggio manuale (due clic del mouse)" },
-
-"save_field": { 
-"message": "Salva solo questo campo" },
-
-"save_all": { 
-"message": "Salva tutti i campi" },
-
-"load_all": { 
-"message": "Carica i campi" },
-
-"clear_all": { 
-"message": "Elimina tutti i dati salvati" }
-
+"extension_description": { "message": "Permette di caricare i dati salvati nei moduli. Il caricamento è automatico, il salvataggio manuale (due clic del mouse)" },
+"popup_menu_autoload": { "message": "Caricamento automatico" },
+"save_field": { "message": "Salva solo questo campo" },
+"load_field": { "message": "Carica solo questo campo" },
+"clear_field": { "message": "Cancella solo i dati di questo campo" },
+"save_all": { "message": "Salva tutti i campi" },
+"load_all": { "message": "Carica tutti i campi" },
+"clear_all": { "message": "Elimina tutti i dati salvati" }
 }
 

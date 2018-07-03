@@ -3,13 +3,21 @@
 	"default_locale": "en",
     "name": "AutoFormer+",
     "description": "__MSG_extension_description__",
-    "version": "0.611",
+    "version": "0.612",
     "homepage_url": "http://firefoxer.ru/autoformer+.htm?ch",
     "author": "Mykola Onyshchuk",
     
     "icons": {
-	"48":  "autoformer-plus-48.png",
-	"128": "autoformer-plus-128.png"
+	"16":  "img/autoformer-plus-16.png",
+	"32":  "img/autoformer-plus-32.png",
+	"64":  "img/autoformer-plus-64.png"
+	},
+
+	"browser_action": {
+		"browser_style": false,
+		"default_icon": "img/autoformer-plus-16.png",
+		"default_title": "AutoFormer+",
+		"default_popup": "autoformer-plus-popup.htm"
 	},
 
     "background": {

@@ -1,18 +1,10 @@
 {
-
-"extension_description": { 
-"message": "Carregar les dades salvades als formularis. La càrrega és automàtica, la salvació és manual (amb 2 clics)" },
-
-"save_field": { 
-"message": "Salva aquest camp només" },
-
-"save_all": { 
-"message": "Salva tots els camps" },
-
-"load_all": { 
-"message": "Carrega camps" },
-
-"clear_all": { 
-"message": "Neteja totes les dades salvades" }
-
+"extension_description": { "message": "Carregar les dades salvades als formularis. La càrrega és automàtica, la salvació és manual (amb 2 clics)" },
+"popup_menu_autoload": { "message": "Autocàrrega" },
+"save_field": { "message": "Salva aquest camp només" },
+"load_field": { "message": "Carregueu només aquest camp" },
+"clear_field": { "message": "Esborra només aquestes dades de camp" },
+"save_all": { "message": "Salva tots els camps" },
+"load_all": { "message": "Carrega camps" },
+"clear_all": { "message": "Neteja totes les dades salvades" }
 }

@@ -1,19 +1,11 @@
 {
-
-"extension_description": { 
-"message": "Bu, kaydettiğiniz veriyi formlara doldurur. Doldurma otomatiktir, kaydetme ise elle yapılır (2 fare tıklamasıyla)" },
-
-"save_field": { 
-"message": "Sadece bu alanı kaydet" },
-
-"save_all": { 
-"message": "Tüm alanları kaydet" },
-
-"load_all": { 
-"message": "Alanları yükle" },
-
-"clear_all": { 
-"message": "Kayıtlı tüm veriyi sil" }
-
+"extension_description": { "message": "Bu, kaydettiğiniz veriyi formlara doldurur. Doldurma otomatiktir, kaydetme ise elle yapılır (2 fare tıklamasıyla)" },
+"popup_menu_autoload": { "message": "Otomatik yük" },
+"save_field": { "message": "Sadece bu alanı kaydet" },
+"load_field": { "message": "Bu alanı yalnızca yükle" },
+"clear_field": { "message": "Yalnızca bu alan verilerini temizle" },
+"save_all": { "message": "Tüm alanları kaydet" },
+"load_all": { "message": "Tüm alanları yükle" },
+"clear_all": { "message": "Kayıtlı tüm veriyi sil" }
 }
 

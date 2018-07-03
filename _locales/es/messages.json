@@ -1,18 +1,10 @@
 {
-
-"extension_description": { 
-"message": "Carga los datos guardados en formularios. La carga es automática, el guardado manual (con doble-click)" },
-
-"save_field": { 
-"message": "Guardar solamente este campo" },
-
-"save_all": { 
-"message": "Guardar todos los campos" },
-
-"load_all": { 
-"message": "Carga formularios" },
-
-"clear_all": { 
-"message": "Borrar todos los datos guardados" }
-
+"extension_description": { "message": "Carga los datos guardados en formularios. La carga es automática, el guardado manual (con doble-click)" },
+"popup_menu_autoload": { "message": "Carga automática" },
+"save_field": { "message": "Guardar solamente este campo" },
+"load_field": { "message": "Cargue este campo solo" },
+"clear_field": { "message": "Borre solo este campo de datos" },
+"save_all": { "message": "Guardar todos los campos" },
+"load_all": { "message": "Cargar todos los campos" },
+"clear_all": { "message": "Borrar todos los datos guardados" }
 }

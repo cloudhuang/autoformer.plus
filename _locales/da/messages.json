@@ -1,18 +1,10 @@
 {
-
-"extension_description": { 
-"message": "Indlæser gemte data i formularer. Indlæsning foregår automatisk, gem manuelt (med 2 museklik)" },
-
-"save_field": { 
-"message": "Gem kun dette felt" },
-
-"save_all": { 
-"message": "Gem alle felter" },
-
-"load_all": { 
-"message": "Indlæs felter" },
-
-"clear_all": { 
-"message": "Ryd alle gemte data" }
-
+"extension_description": { "message": "Indlæser gemte data i formularer. Indlæsning foregår automatisk, gem manuelt (med 2 museklik)" },
+"popup_menu_autoload": { "message": "Automatisk belastning" },
+"save_field": { "message": "Gem kun dette felt" },
+"load_field": { "message": "Indlæs kun dette felt" },
+"clear_field": { "message": "Ryd kun denne feltdata" },
+"save_all": { "message": "Gem alle felter" },
+"load_all": { "message": "Indlæs felter" },
+"clear_all": { "message": "Ryd alle gemte data" }
 }

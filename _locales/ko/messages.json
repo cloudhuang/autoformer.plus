@@ -1,19 +1,11 @@
 {
-
-"extension_description": { 
-"message": "형식 내 저장한 자료를 불러옵니다. 불러오기는 자동이지만, 저장은 수동입니다(2 마우스 클릭)" },
-
-"save_field": { 
-"message": "이 필드만 저장" },
-
-"save_all": { 
-"message": "모든 필드 저장" },
-
-"load_all": { 
-"message": "필드 불러오기" },
-
-"clear_all": { 
-"message": "모든 저장된 데이터 정리" }
-
+"extension_description": { "message": "형식 내 저장한 자료를 불러옵니다. 불러오기는 자동이지만, 저장은 수동입니다(2 마우스 클릭)" },
+"popup_menu_autoload": { "message": "자동로드" },
+"save_field": { "message": "이 필드만 저장" },
+"load_field": { "message": "이 필드 만로드하십시오." },
+"clear_field": { "message": "이 필드 데이터 만 지우기" },
+"save_all": { "message": "모든 필드 저장" },
+"load_all": { "message": "필드 불러오기" },
+"clear_all": { "message": "모든 저장된 데이터 정리" }
 }
 

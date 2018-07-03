@@ -1,19 +1,10 @@
 {
-
-"extension_description": { 
-"message": "Dopĺňa uložené údaje do formulárov. Načítavanie je automatické, ukladanie je manuálne (2 kliknutia myšou)" },
-
-"save_field": { 
-"message": "Uložiť obsah iba tohto textového poľa" },
-
-"save_all": { 
-"message": "Uložiť obsah všetkých textových polí" },
-
-"load_all": { 
-"message": "Načítať obsah textových polí" },
-
-"clear_all": { 
-"message": "Vymazať všetky uložené údaje" }
-
+"extension_description": { "message": "Dopĺňa uložené údaje do formulárov. Načítavanie je automatické, ukladanie je manuálne (2 kliknutia myšou)" },
+"popup_menu_autoload": { "message": "Automatické načítanie" },
+"save_field": { "message": "Uložte iba toto pole" },
+"load_field": { "message": "Toto pole zadajte iba" },
+"clear_field": { "message": "Vymažte iba tieto dáta v poli" },
+"save_all": { "message": "Uložte všetky polia" },
+"load_all": { "message": "Načítať všetky polia" },
+"clear_all": { "message": "Vymažte všetky uložené údaje" }
 }
-

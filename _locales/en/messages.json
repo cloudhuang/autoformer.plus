@@ -1,8 +1,10 @@
 {
 "extension_description": { "message": "Automatic form filler" },
+"popup_menu_autoload": { "message": "Autoload" },
 "save_field": { "message": "Save this field only" },
+"load_field": { "message": "Load this field only" },
+"clear_field": { "message": "Clear this field data only" },
 "save_all": { "message": "Save all fields" },
 "load_all": { "message": "Load all fields" },
 "clear_all": { "message": "Clear all saved data" }
 }
-
