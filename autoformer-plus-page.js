@@ -21,15 +21,36 @@ function isLockCurrent(){
 	return true;		
 } 
 ////////////////////////////////////////////////////////////////////////
-function isFormElement(et){ 
-	if(et == null || et.nodeName == null)
-		return false;
-		
-	var tag = et.nodeName.toString().toLowerCase();
-	if(tag == "input" || tag == "textarea" || tag == "select")
-		return true;
+function getInputsCount()
+{
+	var inputs_count = 0;
 	
-	return false;	
+	var elements = document.getElementsByTagName("textarea");
+	for(var i=0; i<elements.length; i++)
+		inputs_count += canElementSave(elements.item(i));
+	elements = document.getElementsByTagName("input");
+	for(var i=0; i<elements.length; i++)
+		inputs_count += canElementSave(elements.item(i));
+	elements = document.getElementsByTagName("select");
+	for(var i=0; i<elements.length; i++)
+		inputs_count += canElementSave(elements.item(i));
+			
+	return inputs_count;
+}
+
+function hasStoredData()
+{
+	var ls = window.localStorage;
+	var ls_length = ls.length;
+	var whanted_prefix = g_AutoFormerPrefix + "@";
+
+	for(var i=0; i<ls_length; i++){
+		var key = ls.key(i);
+		if(key.indexOf(whanted_prefix) != -1)
+			return 1;
+	}
+	
+	return 0;
 }
 
 function canElementSave(et) 
@@ -43,6 +64,9 @@ function canElementSave(et)
 		type = type.toString().toLowerCase();
 		if (type == "button" || type == "file" || type == "hidden" || type == "image" || type == "reset" || type == "submit")
 			result = false;
+			
+		if(type == "radio")	
+			result = et.checked;
 	}
 	return result;
 }
@@ -226,7 +250,8 @@ function stopAutoload(){
 }
 ////////////////////////////////////////////////////////////////////////
 function on_messages_content(request, sender, sendResponse) {
-//console.log("=== on_messages_content::request.msg:"+request.msg);		
+console.log("=== on_messages_content::request.msg:"+request.msg);		
+	
 	if(sender.id != chrome.runtime.id)
 		return;
 
@@ -256,6 +281,12 @@ function on_messages_content(request, sender, sendResponse) {
 		
 	if(request.msg === "stop-autoload")
 		stopAutoload();
+		
+	if(request.msg === "get-popup-enable"){
+		var has_inputs = getInputsCount();
+		var has_data = hasStoredData();
+		chrome.runtime.sendMessage({msg:"set-popup-enable", has_inputs:has_inputs, has_data:has_data});
+	}
 }
 chrome.runtime.onMessage.addListener(on_messages_content);
 chrome.runtime.sendMessage({msg:"can-autoload"});
