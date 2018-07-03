@@ -3,7 +3,7 @@
 	"default_locale": "en",
     "name": "AutoFormer+",
     "description": "__MSG_extension_description__",
-    "version": "0.52",
+    "version": "0.54",
     "homepage_url": "http://firefoxer.ru/#afp",
     "author": "Mykola Onyshchuk",
     
@@ -21,7 +21,8 @@
 	"content_scripts": [
 	  {
 		"matches": ["<all_urls>"],
-		"js": ["autoformer-plus-page.js"]
+		"js": ["autoformer-plus-page.js"],
+		"all_frames": true
 	  }
 	],
 
