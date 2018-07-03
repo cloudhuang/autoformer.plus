@@ -90,6 +90,9 @@ function setElementValue(et, value){
 		for(var i=0; i<et.options.length; i++)
 			et.options.item(i).selected = value.indexOf(et.options.item(i).value + "@") != -1;
      }
+	 
+	var event_change = new Event("change");
+	et.dispatchEvent(event_change);
 }
 
 ////////////////////////////////////////////////////////////////////////

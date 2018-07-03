@@ -2,8 +2,9 @@
     "manifest_version": 2,
 	"default_locale": "en",
     "name": "AutoFormer+",
+    "short_name": "AutoFormer+, form filler",
     "description": "__MSG_extension_description__",
-    "version": "0.55",
+    "version": "0.57",
     "homepage_url": "http://firefoxer.ru/#afp",
     "author": "Mykola Onyshchuk",
     
