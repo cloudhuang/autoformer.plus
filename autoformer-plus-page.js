@@ -227,6 +227,8 @@ function stopAutoload(){
 ////////////////////////////////////////////////////////////////////////
 function on_messages_content(request, sender, sendResponse) {
 //console.log("=== on_messages_content::request.msg:"+request.msg);		
+	if(sender.id != chrome.runtime.id)
+		return;
 
 	if(request.msg === "save_field")
 		saveElement(document.activeElement);

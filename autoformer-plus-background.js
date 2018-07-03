@@ -43,6 +43,8 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 ////////////////////////////////////////////////////////////////////////
 function on_messages_background(request, sender) {
 //console.log("=== on_messages_background::request.msg:"+request.msg);		
+	if(sender.id != chrome.runtime.id)
+		return;
 
 	if(request.msg === "get-popup-autoload" && g_autoload)
 		chrome.runtime.sendMessage({msg:"set-popup-autoload"});
