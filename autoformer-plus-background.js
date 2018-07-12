@@ -35,9 +35,6 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 ////////////////////////////////////////////////////////////////////////
 function on_messages_background(request, sender) {
 //console.log("=== on_messages_background::request.msg:"+request.msg);		
-	if(sender.id != chrome.runtime.id)
-		return;
-
 	if(request.msg === "get-popup-autoload" && g_autoload)
 		chrome.runtime.sendMessage({msg:"set-popup-autoload"});
 		
@@ -75,4 +72,19 @@ function on_messages_background(request, sender) {
 }
 chrome.runtime.onMessage.addListener(on_messages_background); 
 ////////////////////////////////////////////////////////////////////////
-	
+function on_hotkey(command) {
+	if(command == "popup-command-autoload"){
+		on_messages_background({msg:"change-option-autoload"});
+		return;
+	}
+		
+	var msg_to_tab = command.replace("popup-command-", "");
+	var mode_ext = 0;
+	if(msg_to_tab != null){	
+		chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+			chrome.tabs.sendMessage(tabs[0].id, {msg:msg_to_tab, mode_ext:mode_ext});
+		});
+	}
+}
+chrome.commands.onCommand.addListener(on_hotkey);
+////////////////////////////////////////////////////////////////////////
