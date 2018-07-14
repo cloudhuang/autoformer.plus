@@ -60,13 +60,6 @@ function on_messages_popup(request, sender, sendResponse) {
 chrome.runtime.onMessage.addListener(on_messages_popup); 
 chrome.runtime.sendMessage({msg:"get-popup-autoload"});
 ////////////////////////////////////////////////////////////////////////
-document.getElementById("label_autoload").innerText = chrome.i18n.getMessage("popup_menu_autoload");
-document.getElementById("label_save_all").innerText = chrome.i18n.getMessage("save_all");
-var et_load_all = document.getElementById("label_load_all");
-et_load_all.innerText = chrome.i18n.getMessage("load_all");
-et_load_all.setAttribute("title", chrome.i18n.getMessage("load_all_shift"));
-document.getElementById("label_clear_all").innerText = chrome.i18n.getMessage("clear_all");
-
 chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
 	var current_tab_url = tabs[0].url;
 	if(current_tab_url.indexOf("http://") == -1 && current_tab_url.indexOf("https://") == -1){
@@ -77,12 +70,53 @@ chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
 	else 
 		chrome.tabs.sendMessage(tabs[0].id, {msg:"get-popup-enable"});
 });
- 
 ////////////////////////////////////////////////////////////////////////
+document.getElementById("label_autoload").innerText = chrome.i18n.getMessage("popup_menu_autoload");
+document.getElementById("label_save_all").innerText = chrome.i18n.getMessage("save_all");
+var et_load_all = document.getElementById("label_load_all");
+et_load_all.innerText = chrome.i18n.getMessage("load_all");
+et_load_all.setAttribute("title", chrome.i18n.getMessage("load_all_shift"));
+document.getElementById("label_clear_all").innerText = chrome.i18n.getMessage("clear_all");
+//
 var browser_lang = chrome.i18n.getUILanguage();
+var menu_ltr = 1;
 if(browser_lang.indexOf("ar") == 0 || 
    browser_lang.indexOf("fa") == 0 || 
    browser_lang.indexOf("he") == 0 || 
-   browser_lang.indexOf("ur") == 0 )
+   browser_lang.indexOf("ur") == 0 ){
 	document.body.style.direction = "rtl";
+	menu_ltr = 0;
+}
+////////////////////////////////////////////////////////////////////////
+function on_shortcuts_read(arr_commands){
+	var shortcuts_count = 0;
+	for(let command of arr_commands){
+		if(command.shortcut.length){
+			var label_id = 0;
+			switch(command.name){
+				case "popup-command-autoload":  label_id = "shortcut_autoload";  break; 
+				case "popup-command-save_all":  label_id = "shortcut_save_all";  break; 
+				case "popup-command-load_all":  label_id = "shortcut_load_all";  break; 
+				case "popup-command-clear_all": label_id = "shortcut_clear_all"; break; 
+			}
+			if(label_id != 0){
+				var tail = document.getElementById(label_id);
+				tail.innerText = command.shortcut;
+				tail.classList.add("tail-padding");
+				if(menu_ltr)
+					tail.classList.add("tail-right");
+				else
+					tail.classList.add("tail-left");
+				shortcuts_count++;
+			}
+		}
+	}
+	if(shortcuts_count){
+		var coll = document.getElementsByClassName("tail");
+		for(let i=0; i<coll.length; i++)
+			coll.item(i).classList.add("tail-long");
+	}
+}
+//
+chrome.commands.getAll(on_shortcuts_read);
 ////////////////////////////////////////////////////////////////////////

@@ -9,7 +9,7 @@ body {
  background-color: #fff; 
  color: #000;
  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
- font-size: 11pt;
+ font-size: 10pt;
  direction: ltr;
  /* direction: rtl !important; */
 }
@@ -23,6 +23,7 @@ hr {
 
 .button {
  display: flex;
+ justify-content: space-between;
  margin: 0px;
  padding: 0.3em 0em;
  border: 1px solid #fff;
@@ -39,18 +40,37 @@ hr {
 
 .spacer {
  display: inline-block;
- text-align: center;
  width: 2em;
+ text-align: center;
  order: 1;
+ flex-grow: 0;
 }
 
 .label {
  order: 2;
+ flex-grow: 1;
 }
 
 .tail {
- width: 2em;
+ min-width: 2em;
  order: 3;
+ flex-grow: 0;
+}
+
+.tail-padding{
+ padding: 0em 1em;
+}
+
+.tail-long{
+ min-width: 8em;
+}
+
+.tail-left {
+ text-align: left;
+}
+
+.tail-right {
+ text-align: right;
 }
 
 .autoload, .save-all, .load-all, .clear-all {}

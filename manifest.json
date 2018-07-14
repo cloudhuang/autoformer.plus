@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
-	"default_locale": "en",
+    "default_locale": "en",
     "name": "AutoFormer+",
     "description": "__MSG_extension_description__",
-    "version": "0.628",
+    "version": "0.629",
     "homepage_url": "http://firefoxer.ru/autoformer+.htm?ch",
     "author": "Mykola Onyshchuk",
     
@@ -36,7 +36,7 @@
 
 	"commands": {
 		"popup-command-autoload": 
-			{"suggested_key": { "default": "Ctrl+Shift+A" },	"description": "__MSG_popup_menu_autoload__"},
+			{"suggested_key": { "default": "Ctrl+Shift+U" },	"description": "__MSG_popup_menu_autoload__"},
 		"popup-command-save_all": 
 			{"suggested_key": { "default": "Ctrl+Shift+S" },	"description": "__MSG_save_all__"},
 		"popup-command-load_all": 
