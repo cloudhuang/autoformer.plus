@@ -15,12 +15,14 @@ function setLock(){
 } 
 
 function isLockCurrent(){
+	var result = true;
 	var key_old = window.sessionStorage.getItem(g_AutoFormerLock);
 	var key_new = Date.now();
 	var key_delta = key_new - key_old;
 	if(key_delta > 500)
-		return false;
-	return true;		
+		result = false;
+	console.log("### isLockCurrent", result);
+	return result;		
 } 
 ////////////////////////////////////////////////////////////////////////
 function getInputsCount()
@@ -125,7 +127,8 @@ function getElementValue(et){
 }
 
 function setElementValue(et, value){
-	et.focus();
+	//et.focus();
+	et.dispatchEvent(new Event("focus"));
 	
 	var nodeName = et.nodeName.toString().toLowerCase();
 
@@ -211,6 +214,7 @@ function saveAll(){
 }
 
 function loadAll(blankOnly){
+	setLock();
 	g_ElementsLoaded = 0;
 	
 	var elements = document.getElementsByTagName("textarea");
@@ -277,7 +281,6 @@ function runMutationObserver(){
 }
 ////////////////////////////////////////////////////////////////////////
 function doAutoload(){
-	setLock();
 	loadAll(0);
 	if(g_ElementsLoaded)
 		window.scrollTo(0, 0); 
@@ -293,10 +296,6 @@ function stopAutoload(){
 ////////////////////////////////////////////////////////////////////////
 function on_messages_content(request, sender, sendResponse) {
 //console.log("=== on_messages_content::request.msg:"+request.msg);		
-	
-	if(sender.id != chrome.runtime.id)
-		return;
-
 	if(request.msg === "save_field"){
 		g_ElementsSaved = saveElement(document.activeElement);
 		if(g_ElementsSaved)	
@@ -304,6 +303,7 @@ function on_messages_content(request, sender, sendResponse) {
 	}
 		
 	if(request.msg === "load_field"){
+		setLock();
 		g_ElementsLoaded = loadElement(document.activeElement);
 		if(g_ElementsLoaded)
 			chrome.runtime.sendMessage({msg:"load-count", count:g_ElementsLoaded});
@@ -340,3 +340,8 @@ chrome.runtime.onMessage.addListener(on_messages_content);
 chrome.runtime.sendMessage({msg:"can-autoload"});
 //console.log("=== autoformer_content_script_end: "+document.location.href);		
 ////////////////////////////////////////////////////////////////////////
+//###
+
+var cols = document.getElementsByTagName("input");
+for(var i=0; i<cols.length; i++)
+	cols.item(i).addEventListener("focus", (event) => {console.log("### focus on ", event);} );

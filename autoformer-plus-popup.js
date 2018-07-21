@@ -42,9 +42,6 @@ function reenable_menu_item(item_id, enable){
 //
 function on_messages_popup(request, sender, sendResponse) {
 //console.log("=== on_messages_popup::request.msg:"+request.msg);	
-	if(sender.id != chrome.runtime.id)
-		return;
-	
 	if(request.msg === "set-popup-autoload")	
 		show_as_autoload();
 	if(request.msg === "set-popup-enable"){
