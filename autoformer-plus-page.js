@@ -21,7 +21,6 @@ function isLockCurrent(){
 	var key_delta = key_new - key_old;
 	if(key_delta > 500)
 		result = false;
-	console.log("### isLockCurrent", result);
 	return result;		
 } 
 ////////////////////////////////////////////////////////////////////////
@@ -340,8 +339,3 @@ chrome.runtime.onMessage.addListener(on_messages_content);
 chrome.runtime.sendMessage({msg:"can-autoload"});
 //console.log("=== autoformer_content_script_end: "+document.location.href);		
 ////////////////////////////////////////////////////////////////////////
-//###
-
-var cols = document.getElementsByTagName("input");
-for(var i=0; i<cols.length; i++)
-	cols.item(i).addEventListener("focus", (event) => {console.log("### focus on ", event);} );
