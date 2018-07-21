@@ -10,7 +10,7 @@ var g_MutationObserver = null;
 function setLock(){
 	var key_old = window.sessionStorage.getItem(g_AutoFormerLock);
 	var key_new = Date.now();
-	if(key_old == null || key_new > key_old + 5000)
+	if(key_old == null || key_new - key_old > 5000)
 		window.sessionStorage.setItem(g_AutoFormerLock, key_new);
 } 
 
@@ -18,7 +18,7 @@ function isLockCurrent(){
 	var key_old = window.sessionStorage.getItem(g_AutoFormerLock);
 	var key_new = Date.now();
 	var key_delta = key_new - key_old;
-	if(key_delta > 300)
+	if(key_delta > 500)
 		return false;
 	return true;		
 } 
@@ -125,12 +125,14 @@ function getElementValue(et){
 }
 
 function setElementValue(et, value){
-	 var nodeName = et.nodeName.toString().toLowerCase();
+	et.focus();
+	
+	var nodeName = et.nodeName.toString().toLowerCase();
 
-     if(nodeName == "textarea")
+    if(nodeName == "textarea")
 		et.value = value;
 
-     if(nodeName == "input"){
+    if(nodeName == "input"){
 		var type = et.getAttribute("type");
 		if(type != null)
 			type = type.toString().toLowerCase();
@@ -141,13 +143,13 @@ function setElementValue(et, value){
 			et.checked = (et.value == value);
 		else
 			et.value = value;
-     }
+    }
 
-     if(nodeName == "select")
-     {
+    if(nodeName == "select")
+    {
 		for(var i=0; i<et.options.length; i++)
 			et.options.item(i).selected = value.indexOf(et.options.item(i).value + "@") != -1;
-     }
+    }
 	 
 	if(isLockCurrent()){
 		var event_change = new Event("change");
@@ -277,6 +279,8 @@ function runMutationObserver(){
 function doAutoload(){
 	setLock();
 	loadAll(0);
+	if(g_ElementsLoaded)
+		window.scrollTo(0, 0); 
 	runMutationObserver();
 }
 
